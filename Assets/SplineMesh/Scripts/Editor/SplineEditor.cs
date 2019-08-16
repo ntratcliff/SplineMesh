@@ -23,11 +23,11 @@ namespace SplineMesh {
             Up
         }
 
-        private SplineNode selection;
-        private SelectionType selectionType;
-        private bool mustCreateNewNode = false;
+        private static SplineNode selection;
+        private static SelectionType selectionType;
+        private static bool mustCreateNewNode = false;
         private SerializedProperty nodesProp;
-        private Spline spline;
+        private static Spline spline;
 
         private GUIStyle nodeButtonStyle, directionButtonStyle, upButtonStyle;
 
@@ -190,6 +190,8 @@ namespace SplineMesh {
 
             if (GUI.changed)
                 EditorUtility.SetDirty(target);
+
+			Debug.Log("[SceneGUI] Selection: " + selection);
         }
 
         bool Button(Vector2 position, GUIStyle style) {
@@ -197,6 +199,8 @@ namespace SplineMesh {
         }
 
         public override void OnInspectorGUI() {
+			Debug.Log("[InspectorGUI] Selection: " + selection);
+
             serializedObject.Update();
             // hint
             EditorGUILayout.HelpBox("Hold Alt and drag a node to create a new one.", MessageType.Info);
