@@ -71,7 +71,7 @@ namespace SplineMesh {
             if (e.type == EventType.MouseDown) {
                 Undo.RegisterCompleteObjectUndo(spline, "change spline topography");
                 // if alt key pressed, we will have to create a new node if node position is changed
-                if (e.alt) {
+                if (e.shift) {
                     mustCreateNewNode = true;
                 }
             }
@@ -199,7 +199,7 @@ namespace SplineMesh {
         public override void OnInspectorGUI() {
             serializedObject.Update();
             // hint
-            EditorGUILayout.HelpBox("Hold Alt and drag a node to create a new one.", MessageType.Info);
+            EditorGUILayout.HelpBox("Hold shift and drag a node to create a new one.", MessageType.Info);
 
             // add button
             if (selection == null) {
