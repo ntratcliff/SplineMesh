@@ -190,8 +190,6 @@ namespace SplineMesh {
 
             if (GUI.changed)
                 EditorUtility.SetDirty(target);
-
-			Debug.Log("[SceneGUI] Selection: " + selection);
         }
 
         bool Button(Vector2 position, GUIStyle style) {
@@ -199,8 +197,6 @@ namespace SplineMesh {
         }
 
         public override void OnInspectorGUI() {
-			Debug.Log("[InspectorGUI] Selection: " + selection);
-
             serializedObject.Update();
             // hint
             EditorGUILayout.HelpBox("Hold Alt and drag a node to create a new one.", MessageType.Info);
